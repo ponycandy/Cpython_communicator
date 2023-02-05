@@ -13,13 +13,15 @@ public:
     explicit sendermain(QObject *parent = nullptr);
     CPYcoderservice *m_decoder;
     Tcpcommunicateservice *m_tcp;
+    Tcpcommunicateservice *m_tcp1;
+
     Form *m_form;
 signals:
 
 public slots:
    void getmat(Eigen::MatrixXd mat);
    void doitnow();
-
+   void doitnow2();
 };
 
 #endif // SENDERMAIN_H

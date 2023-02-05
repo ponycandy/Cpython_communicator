@@ -17,3 +17,8 @@ void Form::on_pushButton_clicked()
 {
     emit sig_doit();
 }
+
+void Form::on_pushButton_2_clicked()
+{
+    emit sig_doit2();
+}

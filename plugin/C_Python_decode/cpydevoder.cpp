@@ -66,7 +66,7 @@ Eigen::MatrixXd CPyDevoder::make_mat(CPYDATA::mat_trans &PTtopic)
     return targetmat;
 }
 
-void CPyDevoder::sendMAT(Eigen::MatrixXd mat)
+void CPyDevoder::sendMAT(Eigen::MatrixXd mat,Tcpcommunicateservice * usingservice)
 {
     CPYDATA::mat_trans matsend;
     matsend.rows=mat.rows();
@@ -85,7 +85,7 @@ void CPyDevoder::sendMAT(Eigen::MatrixXd mat)
 
     QByteArray sendingdata;//应用层到协议层
     execute(matsend,sendingdata);
-    m_service->send(sendingdata);
+    usingservice->send(sendingdata);
 }
 void CPyDevoder::execute( CPYDATA::mat_trans ptopic, QByteArray &sending_data)
 {

@@ -21,7 +21,7 @@ void TCPClient::connectport()
             qDebug() << "Connection failed!";
             return;
         }
-         qDebug() << "Connection success!";
+        qDebug() << "Connection success!";
     }
 
 }
@@ -49,6 +49,12 @@ void TCPClient::setport(QString port, QString ip)
 {
     IP=ip;
     portnum=port.toInt();
+}
+
+Tcpcommunicateservice *TCPClient::cloneservice()
+{
+    TCPClient *newservice=new TCPClient;
+    return newservice;
 }
 
 void TCPClient::tcprecieved()

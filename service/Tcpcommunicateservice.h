@@ -11,7 +11,7 @@ public:
     virtual void connectport()=0;
     virtual void disconnectport()=0;
     virtual void send(QByteArray data)=0;
-
+    virtual Tcpcommunicateservice* cloneservice()=0;
 };
 #define Tcpcommunicateservice_iid "Tcpcommunicateservice"
 

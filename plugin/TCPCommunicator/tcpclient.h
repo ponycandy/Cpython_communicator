@@ -15,6 +15,7 @@ public:
     void disconnectport() override;
     void send(QByteArray data) override;
     void setport(QString port, QString ip) override;
+    Tcpcommunicateservice* cloneservice() override;
 
     QString IP;
     int portnum;

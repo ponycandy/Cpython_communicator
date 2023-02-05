@@ -4,11 +4,13 @@
 
 #include <QObject>
 #include <Eigen/Core>
+#include <service/Tcpcommunicateservice.h>
+
 class CPYcoderservice
 {
 public:
     virtual ~CPYcoderservice(){}
-    virtual void sendMAT(Eigen::MatrixXd mat)=0;
+    virtual void sendMAT(Eigen::MatrixXd mat,Tcpcommunicateservice * usingservice)=0;
 
 };
 #define CPYcoderservice_iid "CPYcoderservice"
