@@ -1,17 +1,19 @@
-
 import struct
 import numpy
-
-class Default_Callback:
-    def set_target_data(self,mattarget):
-        self.targetmatSmptr=mattarget
+from callbackObj import callbackObj
+class Default_Callback(callbackObj):
+    # def set_target_data(self,mattarget): #this function must be reimplemented by other callback
+    #     self.evt = threading.Event()
+    #     self.targetmatSmptr=mattarget
+    #     self.targetmatSmptr.set_evn(self.evt)
     def callbackfunc(self,code):
+
         order=0
 
         s=code[0:2]#short header
         header = struct.unpack("H", s)[0]
-        if(header==0xaadd):
-            print("yes")
+        # if(header==0xaadd):
+        #     print("yes")
         order=order+2
 
 
@@ -31,6 +33,6 @@ class Default_Callback:
 
                 s=code[order:order+8]
                 self.mat[rownum,colnum] = struct.unpack("d", s)[0]
-                print(self.mat[rownum,colnum])
+                # print(self.mat[rownum,colnum])
                 order=order+8
-        self.targetmatSmptr.modifydata(self.mat)
+        self.targetdata.modifydata(self.mat)
