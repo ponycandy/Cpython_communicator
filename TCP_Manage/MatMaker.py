@@ -5,8 +5,10 @@ class MatMaker:
         self.MTCP=TCPMassenger
         self.M_DATAM=DataMake
     def make_mat(self,numpydata):
+        #允许tensor和array类型
+        #np.mat(array)无比转为mat类型输入！！
         rows=np.size(numpydata,0)  #计算 X 的行数
-        cols=np.size(numpydata,0)  #计算 X 的列数
+        cols=np.size(numpydata,1)  #计算 X 的列数
         self.bytes_data = bytes()
         for rownum in range(0,rows):  # 迭代 10 到 20 之间的数字
             for colnum in range(0,cols): # 根据因子迭代
